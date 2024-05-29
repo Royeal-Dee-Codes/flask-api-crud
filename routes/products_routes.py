@@ -1,24 +1,16 @@
 from flask import request, Blueprint
-from controllers import (
-    product_create,
-    product_get_by_id,
-    product_update_by_id,
-    product_delete_by_id,
-    get_all_products,
-    get_active_products,
-    update_product_activity
-)
+from controllers.products_controller import product_create, product_get_by_id, product_update_by_id, product_delete_by_id, get_all_products, get_active_products,    update_product_activity
 
 product = Blueprint('product', __name__)
 
 
 @product.route('/product', methods=['POST'])
-def product_create():
+def product_add():
     return product_create(request)
 
 
 @product.route('/product/<product_id>', methods=['GET'])
-def product_get_by_id(product_id):
+def get_product_by_id(product_id):
     return product_get_by_id(product_id)
 
 
